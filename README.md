@@ -1,42 +1,198 @@
-# ESP32-CAM Telegram Security Bot
+# 🌱 Smart Monitoring System (ESP32 + Backend + Telegram)
 
-Este projeto utiliza um **ESP32-CAM** para criar um sistema de monitoramento inteligente. Com um sensor de movimento, o dispositivo captura uma foto sempre que detecta movimento e a envia diretamente para o seu **Telegram**.
+Sistema de monitoramento inteligente baseado em IoT utilizando **ESP32-CAM**, integração com **API backend (Node.js)** e notificações via **Telegram**.
 
----
+O projeto vai além de um simples detector de movimento, simulando um cenário real de **arquitetura distribuída**, com coleta de eventos físicos, processamento em backend e envio de alertas em tempo real.
 
-## 📋 Funcionalidades
-
-- Detecta movimento utilizando um sensor PIR.
-- Captura fotos com a câmera do ESP32-CAM.
-- Envia as imagens para um chat ou grupo no Telegram.
-- Sistema simples e eficiente para monitoramento remoto.
+> 💡 Pode ser aplicado em: segurança residencial, monitoramento remoto, logística e soluções para **AgroTech (irrigação, sensores ambientais, etc.)**
 
 ---
 
-## 🛠️ Hardware Necessário
+## 🚀 Visão do Projeto
 
-- ESP32-CAM.
-- Sensor de movimento PIR (HC-SR501 ou similar).
-- Fonte de alimentação (5V).
-- Cabos jumper e outros componentes básicos para conexão.
+Este projeto foi desenvolvido com foco em:
 
----
-
-## 🖥️ Pré-requisitos
-
-Antes de começar, certifique-se de ter:
-
-1. **Arduino IDE** configurado com suporte ao ESP32. [Configuração oficial aqui](https://github.com/espressif/arduino-esp32).
-2. Biblioteca para conexão com o Telegram, como a [UniversalTelegramBot](https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot).
-3. Credenciais do seu bot no Telegram:
-   - Crie um bot com o [BotFather](https://core.telegram.org/bots#botfather).
-   - Obtenha o token do bot.
+* Integração entre hardware (ESP32) e software (backend)
+* Processamento de eventos em tempo real
+* Arquitetura escalável para IoT
+* Base para evolução em produto (SaaS / automação)
 
 ---
 
-## 🔧 Configuração e Instalação
+## 🧠 Arquitetura
 
-### 1. Configuração do código
-- Clone este repositório:
-  ```bash
-  git clone https://github.com/seu-usuario/esp32-cam-telegram-bot.git
+```
+ESP32-CAM (Sensor PIR + Câmera)
+        ↓
+     HTTP Request
+        ↓
+Backend (Node.js API)
+        ↓
+Banco de Dados (Logs / Eventos)
+        ↓
+Regras / Processamento
+        ↓
+Telegram API (Notificações)
+```
+
+---
+
+## 📸 Funcionalidades
+
+### ✔️ Atual
+
+* Detecção de movimento via sensor PIR
+* Captura de imagem com ESP32-CAM
+* Envio automático para Telegram
+* Integração com backend para registro de eventos
+
+### 🚧 Roadmap (Próximos Passos)
+
+* [ ] Dashboard web (React)
+* [ ] Histórico de eventos e imagens
+* [ ] Sistema de alertas configuráveis
+* [ ] Integração com sensores (umidade, temperatura)
+* [ ] Automação (ex: acionamento de irrigação)
+* [ ] Multi-dispositivo / multi-cliente
+
+---
+
+## 🛠️ Hardware
+
+* ESP32-CAM
+* Sensor PIR (HC-SR501 ou similar)
+* Fonte 5V
+* Jumpers
+
+---
+
+## 💻 Tecnologias Utilizadas
+
+### Firmware / IoT
+
+* ESP32 (Arduino IDE)
+* C++
+* WiFi Client
+
+### Backend
+
+* Node.js
+* API REST
+* (Opcional) Express / Fastify
+
+### Integrações
+
+* Telegram Bot API
+
+### Banco de Dados (opcional)
+
+* PostgreSQL / Supabase
+
+---
+
+## ⚙️ Configuração
+
+### 1. Clonar o projeto
+
+```bash
+git clone https://github.com/seu-usuario/esp32-cam-monitoring.git
+cd esp32-cam-monitoring
+```
+
+---
+
+### 2. Configurar ESP32
+
+* Instalar suporte ESP32 na Arduino IDE:
+  👉 https://github.com/espressif/arduino-esp32
+
+* Instalar biblioteca:
+
+  * `UniversalTelegramBot`
+
+---
+
+### 3. Configurar credenciais
+
+No código do ESP32:
+
+```cpp
+const char* ssid = "SEU_WIFI";
+const char* password = "SUA_SENHA";
+
+String BOTtoken = "SEU_TOKEN_TELEGRAM";
+String CHAT_ID = "SEU_CHAT_ID";
+```
+
+---
+
+### 4. Upload para o ESP32
+
+* Conectar via FTDI
+* Selecionar placa: **AI Thinker ESP32-CAM**
+* Fazer upload do código
+
+---
+
+## 🔌 Backend (Opcional, mas recomendado)
+
+Este projeto pode funcionar apenas com Telegram, porém o backend permite:
+
+* Persistência de eventos
+* Logs estruturados
+* Escalabilidade
+* Integração com dashboards
+
+### Exemplo de endpoint:
+
+```http
+POST /events
+
+{
+  "deviceId": "esp32-01",
+  "type": "motion_detected",
+  "timestamp": "2026-03-22T10:00:00Z"
+}
+```
+
+---
+
+## 📊 Possíveis Aplicações
+
+* Segurança residencial
+* Monitoramento de áreas remotas
+* Controle de acesso
+* Monitoramento agrícola (AgroTech)
+* Automação de irrigação inteligente
+
+---
+
+## 🔥 Diferenciais Técnicos
+
+* Integração end-to-end (hardware → backend → notificação)
+* Arquitetura pronta para escalar
+* Base para produto SaaS IoT
+* Aplicação real em ambientes físicos
+
+---
+
+## 📌 Próximos Passos (Visão de Produto)
+
+* Transformar em plataforma web
+* Adicionar autenticação de usuários
+* Suporte a múltiplos dispositivos
+* Dashboard analítico
+* Integração com cloud (AWS / OCI)
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Felipe Domingues**
+🔗 GitHub: https://github.com/Felipedmgs
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
