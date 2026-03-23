@@ -11,7 +11,7 @@ O projeto vai além de um simples detector de movimento, simulando um cenário r
 
 Exemplo de notificação recebida via Telegram:
 
-![Telegram Example](./assets/images/telegram.jpg)
+![Telegram Example](./assets/images/telegram.png)
 
 ---
 
