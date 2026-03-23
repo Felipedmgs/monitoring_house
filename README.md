@@ -1,6 +1,6 @@
 # 🌱 Smart Monitoring System (ESP32 + Backend + Telegram)
 
-Sistema de monitoramento inteligente baseado em IoT utilizando **ESP32-CAM**, integração com **API backend (Node.js)** e notificações via **Telegram**.
+Sistema de monitoramento inteligente baseado em IoT utilizando **ESP32-CAM**, integração com **API backend** e notificações via **Telegram**.
 
 O projeto vai além de um simples detector de movimento, simulando um cenário real de **arquitetura distribuída**, com coleta de eventos físicos, processamento em backend e envio de alertas em tempo real.
 
@@ -33,7 +33,7 @@ ESP32-CAM (Sensor PIR + Câmera)
         ↓
      HTTP Request
         ↓
-Backend (Node.js API)
+Backend (API)
         ↓
 Banco de Dados (Logs / Eventos)
         ↓
@@ -83,8 +83,7 @@ Telegram API (Notificações)
 
 ### Backend
 
-* Node.js
-* API REST
+* API
 * (Opcional) Express / Fastify
 
 ### Integrações
