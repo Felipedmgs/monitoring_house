@@ -6,6 +6,13 @@ O projeto vai além de um simples detector de movimento, simulando um cenário r
 
 > 💡 Pode ser aplicado em: segurança residencial, monitoramento remoto, logística e soluções para **AgroTech (irrigação, sensores ambientais, etc.)**
 
+
+## 📲 Resultado
+
+Exemplo de notificação recebida via Telegram:
+
+![Telegram Example](./assets/images/telegram.jpg)
+
 ---
 
 ## 🚀 Visão do Projeto
